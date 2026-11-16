@@ -10,71 +10,45 @@
 body{font-family:Poppins,sans-serif;color:#fff;min-height:100vh;overflow-x:hidden;background:#2b0a1a}
 button{font-family:inherit;cursor:pointer}
 
-/* ===== ROMANTIC PREMIUM BACKGROUND ===== */
+/* ===== ROMANTIC BACKGROUND ===== */
 .romantic-bg{position:fixed;inset:0;z-index:-5;overflow:hidden;background:#2b0a1a}
 .romantic-bg img{width:100%;height:100%;object-fit:cover;opacity:.85;filter:saturate(1.3) brightness(.95)}
-.romantic-bg::after{
-  content:"";position:absolute;inset:0;
-  background:
-  radial-gradient(ellipse at 50% 0%, rgba(255,180,200,.55), transparent 55%),
-  radial-gradient(ellipse at 50% 100%, rgba(255,120,160,.45), transparent 55%),
-  linear-gradient(180deg, rgba(43,10,26,.15) 0%, rgba(43,10,26,.45) 45%, rgba(20,5,15,.92) 100%);
-}
+.romantic-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%, rgba(255,180,200,.55), transparent 55%),radial-gradient(ellipse at 50% 100%, rgba(255,120,160,.45), transparent 55%),linear-gradient(180deg, rgba(43,10,26,.15) 0%, rgba(43,10,26,.45) 45%, rgba(20,5,15,.92) 100%)}
 .glow-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.7;animation:orb 6s ease-in-out infinite alternate}
 .orb1{width:280px;height:280px;background:#ff5e8a;top:-50px;left:-50px}
 .orb2{width:320px;height:320px;background:#ffb84d;bottom:-60px;right:-60px;animation-delay:2s}
 @keyframes orb{to{transform:scale(1.25);opacity:.45}}
-.petal{position:absolute;top:-30px;animation:fall linear forwards;z-index:1;pointer-events:none}
+.petal{position:absolute;top:-30px;animation:fall linear forwards;pointer-events:none}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+
+/* BALLOONS IN SKY */
+#balloons{position:fixed;inset:0;pointer-events:none;z-index:15;overflow:hidden}
+.balloon{position:absolute;bottom:-120px;animation:balloonUp linear forwards;font-size:50px;filter:drop-shadow(0 10px 10px rgba(0,0,0,.3))}
+@keyframes balloonUp{to{transform:translateY(-120vh) translateX(30px) rotate(15deg);opacity:0}}
 #hearts{position:fixed;inset:0;pointer-events:none;z-index:20}
 .float{position:absolute;bottom:-40px;animation:floatUp 8s linear forwards}
 @keyframes floatUp{0%{opacity:0}15%{opacity:.9}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+.confetti{position:fixed;top:-20px;z-index:25;animation:confFall linear forwards;pointer-events:none}
+@keyframes confFall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
 
-/* MAIN */
 .container{width:min(620px,92%);margin:auto;padding:22px 0 45px;text-align:center;position:relative;z-index:2}
-
-.lamp-button{
-  width:100%;padding:19px 10px;border:1px solid #ffe2b0;border-radius:20px;
-  background:linear-gradient(110deg, rgba(255,255,255,.25), rgba(255,180,200,.25));
-  backdrop-filter:blur(15px);color:#fff;font-size:12px;font-weight:800;letter-spacing:2px;
-  box-shadow:0 10px 30px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.4);margin-bottom:18px;
-}
+.lamp-button{width:100%;padding:19px 10px;border:1px solid #ffe2b0;border-radius:20px;background:linear-gradient(110deg, rgba(255,255,255,.25), rgba(255,180,200,.25));backdrop-filter:blur(15px);color:#fff;font-size:12px;font-weight:800;letter-spacing:2px;box-shadow:0 10px 30px rgba(0,0,0,.3);margin-bottom:18px}
 .lamp-button span{font-size:22px;margin:0 8px}
-
-/* SURPRISE BUTTON - NOW ON TOP */
-.main-button-top{
-  width:100%;padding:21px 12px;border:1px solid #ffffff60;border-radius:60px;color:#fff;font-weight:800;font-size:14px;
-  background:linear-gradient(100deg,#ff4d7a,#ff8a5c,#b85cff);box-shadow:0 0 35px #ff5e8a88;animation:glow 2s infinite alternate;
-  margin-bottom:26px;
-}
+.main-button-top{width:100%;padding:21px 12px;border:1px solid #ffffff60;border-radius:60px;color:#fff;font-weight:800;font-size:14px;background:linear-gradient(100deg,#ff4d7a,#ff8a5c,#b85cff);box-shadow:0 0 35px #ff5e8a88;animation:glow 2s infinite alternate;margin-bottom:26px}
 @keyframes glow{to{box-shadow:0 0 55px #ff8ab0}}
 .main-button-top span{font-size:23px;margin-left:12px}
-
-.title{
-  font-family:"Playfair Display",serif;font-size:clamp(52px,11vw,76px);line-height:1.08;margin:0 0 12px;font-weight:800;
-  color:#fff;text-shadow:0 5px 20px rgba(255,80,130,.8), 0 2px 0 rgba(0,0,0,.2);
-  animation:levitate 4s ease-in-out infinite;
-}
+.title{font-family:"Playfair Display",serif;font-size:clamp(52px,11vw,76px);line-height:1.08;margin:0 0 12px;font-weight:800;color:#fff;text-shadow:0 5px 20px rgba(255,80,130,.8);animation:levitate 4s ease-in-out infinite}
 .title span{display:block}
 .title b{color:#ffd166;animation:beat 1.5s infinite;display:inline-block;text-shadow:0 0 20px #ffd166}
 @keyframes levitate{50%{transform:translateY(-6px)}}
 @keyframes beat{50%{transform:scale(1.25)}}
 .subtitle{color:#fff;font-size:13px;line-height:2;text-shadow:0 2px 8px #000}
-
-/* PHOTO */
-.photo-frame{
-  width:min(285px,80%);margin:26px auto 20px;padding:10px;border-radius:26px;
-  background:linear-gradient(135deg,#fff,#ffd166,#ff8fb0,#fff);
-  box-shadow:0 20px 50px rgba(0,0,0,.5), 0 0 40px rgba(255,150,180,.6);
-}
+.photo-frame{width:min(285px,80%);margin:26px auto 20px;padding:10px;border-radius:26px;background:linear-gradient(135deg,#fff,#ffd166,#ff8fb0,#fff);box-shadow:0 20px 50px rgba(0,0,0,.5), 0 0 40px rgba(255,150,180,.6)}
 .photo-inner{overflow:hidden;border-radius:19px;background:#28121d;aspect-ratio:4/5;position:relative}
 .photo-inner img{width:100%;height:100%;object-fit:cover;display:block}
 .photo-caption{position:absolute;bottom:0;left:0;right:0;padding:28px 10px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-family:"Great Vibes",cursive;font-size:28px;color:#ffe5bd}
-
 .date{margin:20px 0;color:#ffe2a8;font-size:15px;letter-spacing:5px;font-weight:800;text-shadow:0 2px 10px #000}
 .date-line{width:90px;height:2px;margin:10px auto;background:linear-gradient(90deg,transparent,#ffe2a8,transparent)}
-
-/* CAKE */
 .cake-area{width:190px;height:150px;margin:5px auto 22px;display:flex;align-items:end;justify-content:center}
 .cake{width:145px;height:75px;position:relative;animation:cakeMove 3s ease-in-out infinite}
 @keyframes cakeMove{50%{transform:translateY(-8px)}}
@@ -83,28 +57,30 @@ button{font-family:inherit;cursor:pointer}
 .candle{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:9px;height:40px;border-radius:3px;background:repeating-linear-gradient(45deg,#ff9cb8 0 6px,#fff 6px 12px)}
 .flame{position:absolute;top:-17px;width:9px;height:17px;background:radial-gradient(ellipse at center,#fff8ae,#ffb42d 60%,transparent);filter:drop-shadow(0 0 12px #ffba45);animation:flicker .6s infinite alternate}
 @keyframes flicker{to{transform:scale(.8) rotate(6deg)}}
-
 .voice{margin-top:14px;padding:12px 20px;border:1px solid #ffe2b0;border-radius:40px;color:#ffe2ac;background:rgba(0,0,0,.35);backdrop-filter:blur(10px);font-size:10px;font-weight:800;letter-spacing:1px}
 
-/* WISH */
+/* WISH - AUTO SYSTEM */
 #wishes{display:none;margin-top:35px}
 #wishes.show{display:block;animation:appear .8s}
 @keyframes appear{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 .heading{font-family:"Playfair Display",serif;font-size:34px;color:#fff;margin-bottom:20px;text-shadow:0 3px 15px #ff4d7a}
 .progress{height:5px;background:rgba(255,255,255,.25);border-radius:20px;margin:0 5px 20px;overflow:hidden}
-#progress{width:0;height:100%;background:linear-gradient(90deg,#ffe2a8,#ff8fb0);transition:.4s}
-.wish-card{padding:28px 20px;border:1px solid rgba(255,255,255,.4);border-radius:24px;background:rgba(255,255,255,.18);backdrop-filter:blur(20px);box-shadow:0 15px 45px #0005}
-.wish-emoji{font-size:43px;margin-bottom:12px}
-#wishTitle{font-family:"Playfair Display",serif;color:#ffe2a8;font-size:27px;margin-bottom:12px}
-#wishText{font-size:13px;line-height:2.1;color:#fff}
-#counter{color:#ffe2a8;font-size:11px;margin:16px}
+#progress{width:0;height:100%;background:linear-gradient(90deg,#ffe2a8,#ff8fb0);transition:.8s}
+.wish-card{padding:28px 20px;border:1px solid rgba(255,255,255,.4);border-radius:24px;background:rgba(255,255,255,.18);backdrop-filter:blur(20px);box-shadow:0 15px 45px #0005;min-height:260px}
+.wish-emoji{font-size:48px;margin-bottom:12px;animation:beat 1.5s infinite}
+#wishTitle{font-family:"Playfair Display",serif;color:#ffe2a8;font-size:28px;margin-bottom:12px}
+#wishText{font-size:14px;line-height:2.1;color:#fff}
+#counter{color:#ffe2a8;font-size:11px;margin:16px;letter-spacing:2px}
+.auto-text{font-size:11px;color:#fff;opacity:.8;letter-spacing:1px;margin-top:6px}
 .next{padding:14px 28px;border:0;border-radius:40px;color:#fff;font-weight:800;background:linear-gradient(100deg,#ff4d7a,#a855f7)}
 #finalGift{display:none;margin-top:25px}
 #finalGift.show{display:block;animation:appear .8s}
-#gift{font-size:65px;cursor:pointer;animation:beat 1.5s infinite}
+#gift{font-size:70px;cursor:pointer;animation:beat 1.5s infinite}
 #giftMessage{font-size:13px;line-height:2;margin:15px 0;color:#fff}
+.big-cake{font-size:70px;margin:12px 0;animation:cakeMove 2.5s ease-in-out infinite}
+footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:0 1px 5px #000}
 
-/* LAMP SCREEN */
+/* LAMP */
 .lamp-screen{display:none;position:fixed;inset:0;z-index:50;overflow-y:auto;text-align:center;padding:35px 15px;background:linear-gradient(180deg,rgba(43,10,26,.9),rgba(20,5,15,.98))}
 .lamp-screen.active{display:block;animation:appear .5s}
 .lamp-screen.on{background:radial-gradient(ellipse at 50% 30%,#ff9e5e,#7a2a45 55%,#140a16)}
@@ -120,7 +96,6 @@ button{font-family:inherit;cursor:pointer}
 .status{display:inline-block;padding:10px 24px;border:1px solid #f1ca85;border-radius:40px;color:#ffdda0;font-size:11px;letter-spacing:2px}
 .lamp-message{max-width:330px;margin:18px auto;color:#f4dfc1;font-size:13px;line-height:2}
 .back{padding:13px 23px;border:0;border-radius:35px;background:linear-gradient(100deg,#ffd166,#ff8fb0);color:#2a180a;font-weight:800}
-footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:0 1px 5px #000}
 </style>
 </head>
 <body>
@@ -131,30 +106,24 @@ footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:
   <div class="glow-orb orb2"></div>
   <div id="petals"></div>
 </div>
+<div id="balloons"></div>
 <div id="hearts"></div>
 
 <div class="container">
-
  <button class="lamp-button" onclick="openLamp()">🪔 ROMANTIC TABLE LIGHT <span>➜</span></button>
-
- <!-- SURPRISE BUTTON NOW ON TOP -->
  <button class="main-button-top" onclick="openSurprise()">OPEN YOUR SURPRISE <span>➜</span></button>
 
  <div id="hero">
   <h1 class="title"><span>My Dear</span><span>Bhabi <b>♥</b></span></h1>
   <p class="subtitle">Some people make life more beautiful.<br>Today is a special day for one of them. ❤️</p>
-
   <div class="photo-frame">
    <div class="photo-inner">
     <img src="photo.jpg" alt="Birthday Photo" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(140deg,#6d304b,#bd7991)';this.parentElement.innerHTML+='<div style=&quot;padding:100px 10px;color:#ffe2c2;font-size:40px&quot;>🌸<br><br><span style=&quot;font-size:16px&quot;>Place photo.jpg here</span></div>'">
     <div class="photo-caption">A Special Person ❤️</div>
    </div>
   </div>
-
   <div class="date">17 NOVEMBER<div class="date-line"></div>BIRTHDAY CELEBRATION</div>
-
   <div class="cake-area"><div class="cake"><div class="candle"><div class="flame"></div></div><div class="cake-body"></div><div class="cake-top"></div></div></div>
-
   <p style="font-size:10px;letter-spacing:3px;color:#ffe2b0;margin-bottom:16px">✦ A LITTLE SURPRISE FOR YOU ✦</p>
   <button class="voice" onclick="speakWish()">🎙️ HEAR MY BIRTHDAY WISH</button>
  </div>
@@ -166,14 +135,16 @@ footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:
    <div class="wish-emoji" id="emoji">💖</div>
    <h2 id="wishTitle">Happy Birthday!</h2>
    <p id="wishText"></p>
-   <div id="counter">01 / 05</div>
-   <button class="next" id="next" onclick="nextWish()">NEXT ➜</button>
+   <div id="counter">01 / 03</div>
+   <div class="auto-text">✨ অটোমেটিক চলছে... তোমাকে কিছু চাপতে হবে না ✨</div>
+   <div class="big-cake">🎂</div>
   </div>
   <div id="finalGift">
+   <div class="big-cake">🎂 🎈 🎁 🎈 🎂</div>
    <div id="gift" onclick="revealGift()">🎁</div>
    <h2 class="heading">One Last Message</h2>
-   <p id="giftMessage">Tap the gift to reveal your special message ❤️</p>
-   <button class="next" onclick="celebrate()">CELEBRATE AGAIN 🎉</button>
+   <p id="giftMessage">গিফটে চাপ দাও, তোমার স্পেশাল মেসেজ দেখো ❤️</p>
+   <button class="next" onclick="celebrateAgain()">🎉 আবার দেখো 🎉</button>
   </div>
  </section>
  <footer>MADE WITH LOVE ❤️ • 17 NOVEMBER • ROMANTIC PREMIUM SYSTEM</footer>
@@ -211,31 +182,119 @@ footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:
 </div>
 
 <script>
+// ===== 3 WISHES ONLY - AUTO SYSTEM =====
 const wishes=[
  {e:"💖",t:"Happy Birthday!",m:"শুভ জন্মদিন প্রিয় ভাবি! ❤️ আজকের এই বিশেষ দিনে তোমার জন্য রইল অনেক অনেক শুভেচ্ছা, দোয়া ও ভালোবাসা। তোমার প্রতিটি মুহূর্ত আনন্দে ভরে উঠুক।"},
- {e:"🌹",t:"A Beautiful Smile",m:"তোমার মুখের মিষ্টি হাসিটা সবসময় এমনই সুন্দর থাকুক। জীবনের প্রতিটি সকাল নিয়ে আসুক নতুন আনন্দ আর সুন্দর অনুভূতি।"},
- {e:"✨",t:"A Special Prayer",m:"আল্লাহ তোমার জীবনের প্রতিটি পদক্ষেপ সহজ করে দিন। তোমাকে সুস্থ রাখুন, নিরাপদ রাখুন এবং সব ভালো স্বপ্ন পূরণ করুন। আমিন।"},
- {e:"🦋",t:"Endless Happiness",m:"জীবনে কখনো আনন্দের অভাব না হোক। পরিবার, আপনজন আর ভালোবাসার মানুষদের নিয়ে কাটুক তোমার প্রতিটি সুন্দর দিন।"},
+ {e:"🌹",t:"A Beautiful Smile",m:"তোমার মুখের মিষ্টি হাসিটা সবসময় এমনই সুন্দর থাকুক। জীবনের প্রতিটি সকাল নিয়ে আসুক নতুন আনন্দ আর সুন্দর অনুভূতি। আল্লাহ তোমাকে সবসময় ভালো রাখুন।"},
  {e:"🎂",t:"Stay Blessed!",m:"আজকের দিনটি হোক তোমার জন্য অনেক সুন্দর একটি স্মৃতি। তোমার আগামী দিনগুলো হোক আজকের চেয়েও সুন্দর। অনেক অনেক শুভ জন্মদিন! ❤️"}
 ];
-let index=0,giftOpened=false;
-function openSurprise(){document.getElementById("hero").style.display="none";document.getElementById("wishes").classList.add("show");showWish();celebration();window.scrollTo({top:0,behavior:"smooth"})}
-function showWish(){const w=wishes[index];document.getElementById("emoji").textContent=w.e;document.getElementById("wishTitle").textContent=w.t;document.getElementById("wishText").textContent=w.m;document.getElementById("counter").textContent=String(index+1).padStart(2,"0")+" / 05";document.getElementById("progress").style.width=((index+1)*20)+"%";document.getElementById("next").textContent=index===4?"FINAL SURPRISE ➜":"NEXT ➜"}
-function nextWish(){if(index<4){index++;showWish();celebration()}else{document.getElementById("next").style.display="none";document.getElementById("finalGift").classList.add("show");celebration()}}
-function revealGift(){if(giftOpened)return;giftOpened=true;document.getElementById("giftMessage").textContent="প্রিয় ভাবি, তোমার জীবনে সবসময় সুখ, শান্তি, সুস্বাস্থ্য আর ভালোবাসা থাকুক। তুমি সবসময় ভালো থেকো। শুভ জন্মদিন! ❤️";celebration()}
-function celebrate(){index=0;giftOpened=false;document.getElementById("finalGift").classList.remove("show");document.getElementById("next").style.display="inline-block";showWish();celebration();window.scrollTo({top:0,behavior:"smooth"})}
-function speakWish(){if(!("speechSynthesis" in window)){alert("Voice not supported");return}speechSynthesis.cancel();const msg=new SpeechSynthesisUtterance("Happy Birthday, My Dear Bhabi. May your life be filled with happiness, peace, love and beautiful memories. Wishing you a wonderful birthday.");msg.lang="en-US";msg.rate=.85;msg.pitch=1.08;speechSynthesis.speak(msg)}
+let index=0, giftOpened=false, autoTimer=null;
+
+function openSurprise(){
+  document.getElementById("hero").style.display="none";
+  document.getElementById("wishes").classList.add("show");
+  index=0; giftOpened=false;
+  document.getElementById("finalGift").classList.remove("show");
+  showWish();
+  startAutoSystem();
+  startBalloonSystem();
+  startConfettiSystem();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function showWish(){
+  const w=wishes[index];
+  document.getElementById("emoji").textContent=w.e;
+  document.getElementById("wishTitle").textContent=w.t;
+  document.getElementById("wishText").textContent=w.m;
+  document.getElementById("counter").textContent=String(index+1).padStart(2,"0")+" / 03";
+  document.getElementById("progress").style.width=((index+1)*33.33)+"%";
+}
+function startAutoSystem(){
+  clearInterval(autoTimer);
+  autoTimer=setInterval(()=>{
+    if(index<2){
+      index++; showWish(); celebration(); balloonBurst(); confettiBurst();
+    } else {
+      clearInterval(autoTimer);
+      document.getElementById("finalGift").classList.add("show");
+      celebration(); balloonBurst(); confettiBurst();
+    }
+  }, 4500); // 4.5 সেকেন্ড পর পর অটোমেটিক চেঞ্জ হবে
+}
+function revealGift(){
+  if(giftOpened) return; giftOpened=true;
+  document.getElementById("giftMessage").textContent="প্রিয় ভাবি, তোমার জীবনে সবসময় সুখ, শান্তি, সুস্বাস্থ্য আর ভালোবাসা থাকুক। তুমি সবসময় ভালো থেকো। শুভ জন্মদিন! ❤️";
+  celebration(); balloonBurst(); confettiBurst();
+}
+function celebrateAgain(){
+  index=0; giftOpened=false;
+  document.getElementById("finalGift").classList.remove("show");
+  document.getElementById("giftMessage").textContent="গিফটে চাপ দাও, তোমার স্পেশাল মেসেজ দেখো ❤️";
+  showWish(); startAutoSystem(); startBalloonSystem(); startConfettiSystem();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function speakWish(){
+  if(!("speechSynthesis" in window)){alert("Voice not supported");return}
+  speechSynthesis.cancel();
+  const msg=new SpeechSynthesisUtterance("Happy Birthday, My Dear Bhabi. May your life be filled with happiness, peace, love and beautiful memories. Wishing you a wonderful birthday.");
+  msg.lang="en-US";msg.rate=.85;msg.pitch=1.08;speechSynthesis.speak(msg);
+}
 let lampOn=false;
 function openLamp(){document.getElementById("lampScreen").classList.add("active");document.body.style.overflow="hidden"}
 function closeLamp(){document.getElementById("lampScreen").classList.remove("active");document.body.style.overflow="auto"}
-function toggleLamp(){lampOn=!lampOn;document.getElementById("lampScreen").classList.toggle("on",lampOn);document.getElementById("lampStatus").textContent=lampOn?"✦ LIGHT IS ON ✦":"LIGHT IS OFF";document.getElementById("lampMessage").textContent=lampOn?"A beautiful golden glow for a beautiful day. ❤️ তোমার জীবন হোক আলোকিত।":"Tap the lamp to create a beautiful golden glow. ❤️";if(lampOn)celebration()}
-function celebration(){const area=document.getElementById("hearts");for(let i=0;i<14;i++){setTimeout(()=>{const h=document.createElement("span");h.className="float";h.textContent=["❤️","💕","✨","🌹","♡","🌸"][Math.floor(Math.random()*6)];h.style.left=Math.random()*100+"%";h.style.fontSize=(Math.random()*17+13)+"px";h.style.animationDuration=(Math.random()*4+6)+"s";area.appendChild(h);setTimeout(()=>h.remove(),11000)},i*130)}}
+function toggleLamp(){lampOn=!lampOn;document.getElementById("lampScreen").classList.toggle("on",lampOn);document.getElementById("lampStatus").textContent=lampOn?"✦ LIGHT IS ON ✦":"LIGHT IS OFF";document.getElementById("lampMessage").textContent=lampOn?"A beautiful golden glow for a beautiful day. ❤️ তোমার জীবন হোক আলোকিত।":"Tap the lamp to create a beautiful golden glow. ❤️";if(lampOn){celebration();balloonBurst()}}
+
+// ===== BALLOON SYSTEM - SKY =====
+function balloonBurst(){
+  const area=document.getElementById("balloons");
+  const colors=["🎈","🎈","🎈","🎈","🎈","💖","✨"];
+  for(let i=0;i<10;i++){
+    setTimeout(()=>{
+      const b=document.createElement("div"); b.className="balloon";
+      b.textContent=colors[Math.floor(Math.random()*colors.length)];
+      b.style.left=Math.random()*90+"vw";
+      b.style.fontSize=(40+Math.random()*35)+"px";
+      b.style.animationDuration=(5+Math.random()*4)+"s";
+      area.appendChild(b); setTimeout(()=>b.remove(),9000);
+    }, i*200);
+  }
+}
+function startBalloonSystem(){
+  balloonBurst();
+  setInterval(()=>{ if(document.getElementById("wishes").classList.contains("show")) balloonBurst(); }, 8000);
+}
+// ===== CONFETTI + HEARTS + CAKE SYSTEM =====
+function confettiBurst(){
+  const emojis=["🎉","🎊","💖","🌸","⭐","🎂","🍰"];
+  for(let i=0;i<30;i++){
+    const s=document.createElement("div"); s.className="confetti";
+    s.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    s.style.left=Math.random()*100+"vw"; s.style.fontSize=(14+Math.random()*18)+"px";
+    s.style.animationDuration=(2+Math.random()*2)+"s";
+    document.body.appendChild(s); setTimeout(()=>s.remove(),4000);
+  }
+}
+function startConfettiSystem(){ confettiBurst(); }
+function celebration(){
+  const area=document.getElementById("hearts");
+  for(let i=0;i<12;i++){
+    setTimeout(()=>{
+      const h=document.createElement("span"); h.className="float";
+      h.textContent=["❤️","💕","✨","🌹","♡","🌸","🎂"][Math.floor(Math.random()*7)];
+      h.style.left=Math.random()*100+"%"; h.style.fontSize=(Math.random()*17+13)+"px";
+      h.style.animationDuration=(Math.random()*4+6)+"s";
+      area.appendChild(h); setTimeout(()=>h.remove(),11000);
+    }, i*130);
+  }
+  confettiBurst();
+}
+// Rose petals
 setInterval(()=>{
-  const p=document.createElement("div");p.className="petal";
+  const p=document.createElement("div"); p.className="petal";
   p.textContent=["🌸","🌹","💖","✨"][Math.floor(Math.random()*4)];
-  p.style.left=Math.random()*100+"vw";p.style.fontSize=(14+Math.random()*16)+"px";
+  p.style.left=Math.random()*100+"vw"; p.style.fontSize=(14+Math.random()*16)+"px";
   p.style.animationDuration=(5+Math.random()*5)+"s";
-  document.getElementById("petals").appendChild(p);setTimeout(()=>p.remove(),10000);
+  document.getElementById("petals").appendChild(p); setTimeout(()=>p.remove(),10000);
 },900);
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLamp()});
 </script>
