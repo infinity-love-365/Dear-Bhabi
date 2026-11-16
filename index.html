@@ -9,25 +9,25 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Poppins,sans-serif;color:#4a1228;min-height:100vh;overflow-x:hidden;background:#ffe8f0}
 button{font-family:inherit;cursor:pointer}
-/* ===== INTRO - DHONUK TIR - 4 SEC ===== */
-#intro{position:fixed;inset:0;z-index:100;background:linear-gradient(180deg,#1a0a1a,#7a123e 55%,#ff4d7a);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;color:#fff;overflow:hidden;cursor:pointer;transition:opacity .5s, visibility .5s}
+/* ===== INTRO - DHONUK TIR - 2.5 SEC ===== */
+#intro{position:fixed;inset:0;z-index:100;background:linear-gradient(180deg,#1a0a1a,#7a123e 55%,#ff4d7a);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;color:#fff;overflow:hidden;cursor:pointer;transition:opacity .4s, visibility .4s}
 #intro.hide{opacity:0;visibility:hidden}
 .intro-small{font-size:11px;letter-spacing:5px;font-weight:800;background:rgba(255,255,255,.25);padding:8px 16px;border-radius:30px}
-.intro-title{font-family:"Playfair Display",serif;font-size:clamp(38px,10vw,58px);line-height:1.05;margin:14px 0 6px;text-shadow:0 4px 20px rgba(0,0,0,.4);animation:introZoom .8s .6s both}
+.intro-title{font-family:"Playfair Display",serif;font-size:clamp(38px,10vw,58px);line-height:1.05;margin:14px 0 6px;text-shadow:0 4px 20px rgba(0,0,0,.4);animation:introZoom .5s .3s both}
 .intro-title b{color:#ffe5bd}
-.intro-sub{font-family:"Great Vibes",cursive;font-size:30px;color:#ffe5bd;animation:introZoom .8s 1s both}
+.intro-sub{font-family:"Great Vibes",cursive;font-size:30px;color:#ffe5bd;animation:introZoom .5s .6s both}
 @keyframes introZoom{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
 .bow-stage{position:relative;width:min(320px,88vw);height:90px;margin:10px auto 0}
 .bow{position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:52px}
-.shoot-arrow{position:absolute;left:55px;top:50%;transform:translateY(-50%);font-size:28px;animation:shoot 2s .5s cubic-bezier(.2,.7,.3,1) forwards;opacity:0}
+.shoot-arrow{position:absolute;left:55px;top:50%;transform:translateY(-50%);font-size:28px;animation:shoot 1.2s .2s cubic-bezier(.2,.7,.3,1) forwards;opacity:0}
 @keyframes shoot{0%{left:55px;opacity:1}100%{left:calc(100% - 10px);opacity:0}}
-.trail{position:absolute;left:55px;top:50%;height:3px;background:linear-gradient(90deg,#ffe5bd,transparent);animation:trailGrow 2s .5s forwards;width:0}
+.trail{position:absolute;left:55px;top:50%;height:3px;background:linear-gradient(90deg,#ffe5bd,transparent);animation:trailGrow 1.2s .2s forwards;width:0}
 @keyframes trailGrow{0%{width:0;opacity:1}80%{width:calc(100% - 70px);opacity:1}100%{width:calc(100% - 70px);opacity:0}}
 .target{position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:42px}
-.burst{position:absolute;right:10px;top:50%;transform:translate(-50%,-50%);font-size:28px;opacity:0;animation:burstPop 2.5s 2.5s both}
+.burst{position:absolute;right:10px;top:50%;transform:translate(-50%,-50%);font-size:28px;opacity:0;animation:burstPop 1.2s 1.4s both}
 @keyframes burstPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.4)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.8)}}
 .intro-hearts{position:absolute;inset:0;pointer-events:none}
-.intro-heart{position:absolute;bottom:-30px;animation:introFloat 3s linear infinite}
+.intro-heart{position:absolute;bottom:-30px;animation:introFloat 2s linear infinite}
 @keyframes introFloat{to{transform:translateY(-110vh) rotate(20deg);opacity:0}}
 .romantic-bg{position:fixed;inset:0;z-index:-5;overflow:hidden;background:linear-gradient(180deg,#fff0f5 0%, #ffd6e7 30%, #ffc0d9 55%, #ff9ec4 80%, #ff7eb0 100%)}
 .romantic-bg::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(255,255,255,.9), transparent 35%),radial-gradient(circle at 85% 15%, rgba(255,180,210,.7), transparent 40%),radial-gradient(circle at 50% 85%, rgba(255,255,255,.6), transparent 45%)}
@@ -108,7 +108,7 @@ button{font-family:inherit;cursor:pointer}
 </head>
 <body>
 
-<!-- INTRO 4 SEC -->
+<!-- INTRO 2.5 SEC -->
 <div id="intro" onclick="closeIntro()">
   <div class="intro-hearts" id="introHearts"></div>
   <div class="intro-small">✨ A SPECIAL SURPRISE ✨</div>
@@ -214,10 +214,10 @@ function closeIntro(){
   if(introClosed) return; introClosed=true;
   const intro=document.getElementById("intro");
   intro.classList.add("hide");
-  setTimeout(()=>{ intro.style.display="none"; },500);
+  setTimeout(()=>{ intro.style.display="none"; },400);
   confettiBurst(); balloonBurst();
 }
-setTimeout(closeIntro, 4000); // 4 SEC - FINAL
+setTimeout(closeIntro, 2500); // 2.5 SEC - FINAL
 setInterval(()=>{
   if(introClosed) return;
   const area=document.getElementById("introHearts");
@@ -225,8 +225,8 @@ setInterval(()=>{
   const h=document.createElement("div"); h.className="intro-heart";
   h.textContent=["❤️","💖","⭐"][Math.floor(Math.random()*3)];
   h.style.left=Math.random()*90+"%"; h.style.fontSize=(14+Math.random()*14)+"px";
-  h.style.animationDuration="2.5s";
-  area.appendChild(h); setTimeout(()=>h.remove(),3000);
+  h.style.animationDuration="2s";
+  area.appendChild(h); setTimeout(()=>h.remove(),2000);
 },400);
 
 const wishes=[
@@ -309,7 +309,6 @@ function toggleLamp(){
   lampOn=!lampOn;
   document.getElementById("lampScreen").classList.toggle("on",lampOn);
   document.getElementById("lampStatus").textContent=lampOn?"✦ LIGHT IS ON ✦":"LIGHT IS OFF";
-  // FINAL CUTE CAPTION - BHABI ER JONNO
   document.getElementById("lampMessage").textContent=lampOn?"আমাদের কিউট ভাবি ❤️":"Tap the lamp to create a beautiful golden glow. ❤️";
   if(lampOn){
     document.getElementById("lampArrowWrap").style.display="none";
