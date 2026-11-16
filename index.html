@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dear Bhabi ❤️ | Romantic Birthday</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700;800&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;color:#fff;min-height:100vh;overflow-x:hidden;background:#2b0a1a}
+button{font-family:inherit;cursor:pointer}
+
+/* ===== NEW ROMANTIC PREMIUM BACKGROUND ===== */
+.romantic-bg{position:fixed;inset:0;z-index:-5;overflow:hidden;background:#2b0a1a}
+.romantic-bg img{width:100%;height:100%;object-fit:cover;opacity:.85;filter:saturate(1.3) brightness(.95)}
+.romantic-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+  radial-gradient(ellipse at 50% 0%, rgba(255,180,200,.55), transparent 55%),
+  radial-gradient(ellipse at 50% 100%, rgba(255,120,160,.45), transparent 55%),
+  linear-gradient(180deg, rgba(43,10,26,.15) 0%, rgba(43,10,26,.45) 45%, rgba(20,5,15,.92) 100%);
+}
+.glow-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.7;animation:orb 6s ease-in-out infinite alternate}
+.orb1{width:280px;height:280px;background:#ff5e8a;top:-50px;left:-50px}
+.orb2{width:320px;height:320px;background:#ffb84d;bottom:-60px;right:-60px;animation-delay:2s}
+@keyframes orb{to{transform:scale(1.25);opacity:.45}}
+.petal{position:absolute;top:-30px;animation:fall linear forwards;z-index:1;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+#hearts{position:fixed;inset:0;pointer-events:none;z-index:20}
+.float{position:absolute;bottom:-40px;animation:floatUp 8s linear forwards}
+@keyframes floatUp{0%{opacity:0}15%{opacity:.9}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+
+/* MAIN */
+.container{width:min(620px,92%);margin:auto;padding:22px 0 45px;text-align:center;position:relative;z-index:2}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.logo{font-size:11px;font-weight:800;letter-spacing:3px;color:#ffe2b0;text-shadow:0 2px 10px #000}
+.icon-btn{width:43px;height:43px;border:1px solid #ffffff50;border-radius:50%;color:#fff;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);font-size:18px}
+
+.lamp-button{
+  width:100%;padding:19px 10px;border:1px solid #ffe2b0;border-radius:20px;
+  background:linear-gradient(110deg, rgba(255,255,255,.25), rgba(255,180,200,.25));
+  backdrop-filter:blur(15px);color:#fff;font-size:12px;font-weight:800;letter-spacing:2px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.4);margin-bottom:28px;
+}
+.lamp-button span{font-size:22px;margin:0 8px}
+
+.label{display:inline-block;padding:10px 22px;border:1px solid #ffffff60;border-radius:50px;color:#fff;font-size:10px;letter-spacing:4px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px)}
+.title{
+  font-family:"Playfair Display",serif;font-size:clamp(52px,11vw,76px);line-height:1.08;margin:22px 0 12px;font-weight:800;
+  color:#fff;text-shadow:0 5px 20px rgba(255,80,130,.8), 0 2px 0 rgba(0,0,0,.2);
+  animation:levitate 4s ease-in-out infinite;
+}
+.title span{display:block}
+.title b{color:#ffd166;animation:beat 1.5s infinite;display:inline-block;text-shadow:0 0 20px #ffd166}
+@keyframes levitate{50%{transform:translateY(-6px)}}
+@keyframes beat{50%{transform:scale(1.25)}}
+.subtitle{color:#fff;font-size:13px;line-height:2;text-shadow:0 2px 8px #000}
+
+/* PHOTO - GLASS PREMIUM */
+.photo-frame{
+  width:min(285px,80%);margin:26px auto 20px;padding:10px;border-radius:26px;
+  background:linear-gradient(135deg,#fff,#ffd166,#ff8fb0,#fff);
+  box-shadow:0 20px 50px rgba(0,0,0,.5), 0 0 40px rgba(255,150,180,.6);
+}
+.photo-inner{overflow:hidden;border-radius:19px;background:#28121d;aspect-ratio:4/5;position:relative}
+.photo-inner img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-caption{position:absolute;bottom:0;left:0;right:0;padding:28px 10px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-family:"Great Vibes",cursive;font-size:28px;color:#ffe5bd}
+
+.date{margin:20px 0;color:#ffe2a8;font-size:15px;letter-spacing:5px;font-weight:800;text-shadow:0 2px 10px #000}
+.date-line{width:90px;height:2px;margin:10px auto;background:linear-gradient(90deg,transparent,#ffe2a8,transparent)}
+
+/* CAKE */
+.cake-area{width:190px;height:150px;margin:5px auto 22px;display:flex;align-items:end;justify-content:center}
+.cake{width:145px;height:75px;position:relative;animation:cakeMove 3s ease-in-out infinite}
+@keyframes cakeMove{50%{transform:translateY(-8px)}}
+.cake-body{position:absolute;bottom:0;width:145px;height:65px;border-radius:14px 14px 20px 20px;background:linear-gradient(90deg,#b85e51,#ffe2b2 50%,#bd6655);box-shadow:0 12px 25px #0006}
+.cake-top{position:absolute;top:-13px;width:145px;height:35px;border-radius:50%;background:linear-gradient(120deg,#fff0d3,#eeb7b0);border:3px solid #f4c99e}
+.candle{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:9px;height:40px;border-radius:3px;background:repeating-linear-gradient(45deg,#ff9cb8 0 6px,#fff 6px 12px)}
+.flame{position:absolute;top:-17px;width:9px;height:17px;background:radial-gradient(ellipse at center,#fff8ae,#ffb42d 60%,transparent);filter:drop-shadow(0 0 12px #ffba45);animation:flicker .6s infinite alternate}
+@keyframes flicker{to{transform:scale(.8) rotate(6deg)}}
+
+.main-button{
+  width:100%;padding:21px 12px;border:1px solid #ffffff60;border-radius:60px;color:#fff;font-weight:800;font-size:14px;
+  background:linear-gradient(100deg,#ff4d7a,#ff8a5c,#b85cff);box-shadow:0 0 35px #ff5e8a88;animation:glow 2s infinite alternate;
+}
+@keyframes glow{to{box-shadow:0 0 55px #ff8ab0}}
+.main-button span{font-size:23px;margin-left:12px}
+.voice{margin-top:14px;padding:12px 20px;border:1px solid #ffe2b0;border-radius:40px;color:#ffe2ac;background:rgba(0,0,0,.35);backdrop-filter:blur(10px);font-size:10px;font-weight:800;letter-spacing:1px}
+
+/* WISH */
+#wishes{display:none;margin-top:35px}
+#wishes.show{display:block;animation:appear .8s}
+@keyframes appear{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+.heading{font-family:"Playfair Display",serif;font-size:34px;color:#fff;margin-bottom:20px;text-shadow:0 3px 15px #ff4d7a}
+.progress{height:5px;background:rgba(255,255,255,.25);border-radius:20px;margin:0 5px 20px;overflow:hidden}
+#progress{width:0;height:100%;background:linear-gradient(90deg,#ffe2a8,#ff8fb0);transition:.4s}
+.wish-card{padding:28px 20px;border:1px solid rgba(255,255,255,.4);border-radius:24px;background:rgba(255,255,255,.18);backdrop-filter:blur(20px);box-shadow:0 15px 45px #0005}
+.wish-emoji{font-size:43px;margin-bottom:12px}
+#wishTitle{font-family:"Playfair Display",serif;color:#ffe2a8;font-size:27px;margin-bottom:12px}
+#wishText{font-size:13px;line-height:2.1;color:#fff}
+#counter{color:#ffe2a8;font-size:11px;margin:16px}
+.next{padding:14px 28px;border:0;border-radius:40px;color:#fff;font-weight:800;background:linear-gradient(100deg,#ff4d7a,#a855f7)}
+#finalGift{display:none;margin-top:25px}
+#finalGift.show{display:block;animation:appear .8s}
+#gift{font-size:65px;cursor:pointer;animation:beat 1.5s infinite}
+#giftMessage{font-size:13px;line-height:2;margin:15px 0;color:#fff}
+
+/* LAMP SCREEN - ROMANTIC */
+.lamp-screen{display:none;position:fixed;inset:0;z-index:50;overflow-y:auto;text-align:center;padding:35px 15px;background:linear-gradient(180deg,rgba(43,10,26,.9),rgba(20,5,15,.98))}
+.lamp-screen.active{display:block;animation:appear .5s}
+.lamp-screen.on{background:radial-gradient(ellipse at 50% 30%,#ff9e5e,#7a2a45 55%,#140a16)}
+.close{position:absolute;right:18px;top:17px;width:42px;height:42px;border-radius:50%;border:1px solid #ffffff50;background:rgba(255,255,255,.15);color:#fff;font-size:19px}
+.lamp-screen h2{font-family:"Playfair Display",serif;color:#ffdfa5;font-size:30px}
+.lamp-sub{font-size:10px;color:#e7cba5;letter-spacing:4px;margin-top:10px}
+.lamp-stage{width:min(320px,90vw);height:340px;margin:18px auto;position:relative}
+.lamp-glow{position:absolute;top:5px;left:50%;transform:translateX(-50%);width:260px;height:260px;border-radius:50%;background:#ffc66d;filter:blur(70px);opacity:0;transition:1s}
+.lamp-screen.on .lamp-glow{opacity:.85}
+.lamp-svg{width:100%;height:100%;position:relative;z-index:2;cursor:pointer}
+.light-effect{opacity:0;transition:1s}
+.lamp-screen.on .light-effect{opacity:1}
+.status{display:inline-block;padding:10px 24px;border:1px solid #f1ca85;border-radius:40px;color:#ffdda0;font-size:11px;letter-spacing:2px}
+.lamp-message{max-width:330px;margin:18px auto;color:#f4dfc1;font-size:13px;line-height:2}
+.back{padding:13px 23px;border:0;border-radius:35px;background:linear-gradient(100deg,#ffd166,#ff8fb0);color:#2a180a;font-weight:800}
+footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:0 1px 5px #000}
+</style>
+</head>
+<body>
+
+<div class="romantic-bg">
+  <img src="flower.jpg" alt="flowers">
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+  <div id="petals"></div>
+</div>
+<div id="hearts"></div>
+
+<div class="container">
+ <div class="top"><div class="logo">✦ ROMANTIC BIRTHDAY ✦</div><button class="icon-btn" onclick="alert('Made with Love ❤️')">🌹</button></div>
+
+ <button class="lamp-button" onclick="openLamp()">🪔 ROMANTIC TABLE LIGHT <span>➜</span></button>
+
+ <div id="hero">
+  <div class="label">✧ A BEAUTIFUL DAY ✧</div>
+  <h1 class="title"><span>My Dear</span><span>Bhabi <b>♥</b></span></h1>
+  <p class="subtitle">Some people make life more beautiful.<br>Today is a special day for one of them. ❤️</p>
+
+  <div class="photo-frame">
+   <div class="photo-inner">
+    <img src="photo.jpg" alt="Birthday Photo" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(140deg,#6d304b,#bd7991)';this.parentElement.innerHTML+='<div style=&quot;padding:100px 10px;color:#ffe2c2;font-size:40px&quot;>🌸<br><br><span style=&quot;font-size:16px&quot;>Place photo.jpg here</span></div>'">
+    <div class="photo-caption">A Special Person ❤️</div>
+   </div>
+  </div>
+
+  <div class="date">17 NOVEMBER<div class="date-line"></div>BIRTHDAY CELEBRATION</div>
+
+  <div class="cake-area"><div class="cake"><div class="candle"><div class="flame"></div></div><div class="cake-body"></div><div class="cake-top"></div></div></div>
+
+  <p style="font-size:10px;letter-spacing:3px;color:#ffe2b0;margin-bottom:16px">✦ A LITTLE SURPRISE FOR YOU ✦</p>
+  <button class="main-button" onclick="openSurprise()">OPEN YOUR SURPRISE <span>➜</span></button>
+  <button class="voice" onclick="speakWish()">🎙️ HEAR MY BIRTHDAY WISH</button>
+ </div>
+
+ <section id="wishes">
+  <h2 class="heading">For My Dear Bhabi ❤️</h2>
+  <div class="progress"><div id="progress"></div></div>
+  <div class="wish-card">
+   <div class="wish-emoji" id="emoji">💖</div>
+   <h2 id="wishTitle">Happy Birthday!</h2>
+   <p id="wishText"></p>
+   <div id="counter">01 / 05</div>
+   <button class="next" id="next" onclick="nextWish()">NEXT ➜</button>
+  </div>
+  <div id="finalGift">
+   <div id="gift" onclick="revealGift()">🎁</div>
+   <h2 class="heading">One Last Message</h2>
+   <p id="giftMessage">Tap the gift to reveal your special message ❤️</p>
+   <button class="next" onclick="celebrate()">CELEBRATE AGAIN 🎉</button>
+  </div>
+ </section>
+ <footer>MADE WITH LOVE ❤️ • 17 NOVEMBER • ROMANTIC PREMIUM SYSTEM</footer>
+</div>
+
+<div class="lamp-screen" id="lampScreen">
+ <button class="close" onclick="closeLamp()">✕</button>
+ <h2>Romantic Table Light</h2>
+ <p class="lamp-sub">✦ TOUCH THE LAMP ✦</p>
+ <div class="lamp-stage">
+  <div class="lamp-glow"></div>
+  <svg class="lamp-svg" viewBox="0 0 300 370" onclick="toggleLamp()">
+   <defs>
+    <linearGradient id="metal" x2="1" y2="1"><stop stop-color="#ffe2a8"/><stop offset=".5" stop-color="#8a6a2a"/><stop offset="1" stop-color="#fff0c6"/></linearGradient>
+    <linearGradient id="shade" x2="1" y2="1"><stop stop-color="#ff8fb0"/><stop offset="1" stop-color="#7a1a3a"/></linearGradient>
+    <linearGradient id="gold"><stop stop-color="#fff0a0"/><stop offset=".5" stop-color="#c18b32"/><stop offset="1" stop-color="#74501d"/></linearGradient>
+   </defs>
+   <ellipse cx="150" cy="347" rx="78" ry="10" fill="#000" opacity=".6"/>
+   <g class="light-effect"><path d="M110 112 L40 320 L265 320 L174 112Z" fill="#ffce76" opacity=".35"/></g>
+   <ellipse cx="150" cy="334" rx="69" ry="13" fill="#2a0a1a" stroke="#ffd166" stroke-width="3"/>
+   <ellipse cx="150" cy="330" rx="57" ry="7" fill="#3a1225" stroke="#ff8fb0"/>
+   <path d="M110 322 L88 206 L142 92" fill="none" stroke="#090b10" stroke-width="12" stroke-linecap="round"/>
+   <path d="M110 322 L88 206 L142 92" fill="none" stroke="url(#metal)" stroke-width="5" stroke-linecap="round"/>
+   <circle cx="110" cy="331" r="10" fill="url(#gold)"/><circle cx="88" cy="206" r="11" fill="url(#gold)"/>
+   <path d="M104 91 C103 48 119 12 157 8 C199 4 220 45 218 102 L209 124 Q153 148 97 113Z" fill="url(#shade)" stroke="#ffd166" stroke-width="3"/>
+   <path d="M97 111 Q153 145 218 113 Q210 135 156 142 Q109 135 97 111Z" fill="url(#gold)" stroke="#e9b956" stroke-width="2"/>
+   <g class="light-effect"><ellipse cx="156" cy="111" rx="15" ry="9" fill="#fff4c1"/><circle cx="156" cy="111" r="17" fill="#ffcf70" opacity=".5"/></g>
+   <path d="M157 119 L157 177" stroke="#d5a84f" stroke-width="2.5"/>
+   <path d="M157 175 C146 175 142 187 148 197 Q157 210 166 197 C172 186 167 175 157 175Z" fill="url(#gold)" stroke="#9e702c"/>
+  </svg>
+ </div>
+ <p class="status" id="lampStatus">LIGHT IS OFF</p>
+ <p class="lamp-message" id="lampMessage">Tap the lamp to create a beautiful golden glow. ❤️</p>
+ <button class="back" onclick="closeLamp()">← BACK TO BIRTHDAY</button>
+</div>
+
+<script>
+const wishes=[
+ {e:"💖",t:"Happy Birthday!",m:"শুভ জন্মদিন প্রিয় ভাবি! ❤️ আজকের এই বিশেষ দিনে তোমার জন্য রইল অনেক অনেক শুভেচ্ছা, দোয়া ও ভালোবাসা। তোমার প্রতিটি মুহূর্ত আনন্দে ভরে উঠুক।"},
+ {e:"🌹",t:"A Beautiful Smile",m:"তোমার মুখের মিষ্টি হাসিটা সবসময় এমনই সুন্দর থাকুক। জীবনের প্রতিটি সকাল নিয়ে আসুক নতুন আনন্দ আর সুন্দর অনুভূতি।"},
+ {e:"✨",t:"A Special Prayer",m:"আল্লাহ তোমার জীবনের প্রতিটি পদক্ষেপ সহজ করে দিন। তোমাকে সুস্থ রাখুন, নিরাপদ রাখুন এবং সব ভালো স্বপ্ন পূরণ করুন। আমিন।"},
+ {e:"🦋",t:"Endless Happiness",m:"জীবনে কখনো আনন্দের অভাব না হোক। পরিবার, আপনজন আর ভালোবাসার মানুষদের নিয়ে কাটুক তোমার প্রতিটি সুন্দর দিন।"},
+ {e:"🎂",t:"Stay Blessed!",m:"আজকের দিনটি হোক তোমার জন্য অনেক সুন্দর একটি স্মৃতি। তোমার আগামী দিনগুলো হোক আজকের চেয়েও সুন্দর। অনেক অনেক শুভ জন্মদিন! ❤️"}
+];
+let index=0,giftOpened=false;
+function openSurprise(){document.getElementById("hero").style.display="none";document.getElementById("wishes").classList.add("show");showWish();celebration();window.scrollTo({top:0,behavior:"smooth"})}
+function showWish(){const w=wishes[index];document.getElementById("emoji").textContent=w.e;document.getElementById("wishTitle").textContent=w.t;document.getElementById("wishText").textContent=w.m;document.getElementById("counter").textContent=String(index+1).padStart(2,"0")+" / 05";document.getElementById("progress").style.width=((index+1)*20)+"%";document.getElementById("next").textContent=index===4?"FINAL SURPRISE ➜":"NEXT ➜"}
+function nextWish(){if(index<4){index++;showWish();celebration()}else{document.getElementById("next").style.display="none";document.getElementById("finalGift").classList.add("show");celebration()}}
+function revealGift(){if(giftOpened)return;giftOpened=true;document.getElementById("giftMessage").textContent="প্রিয় ভাবি, তোমার জীবনে সবসময় সুখ, শান্তি, সুস্বাস্থ্য আর ভালোবাসা থাকুক। তুমি সবসময় ভালো থেকো। শুভ জন্মদিন! ❤️";celebration()}
+function celebrate(){index=0;giftOpened=false;document.getElementById("finalGift").classList.remove("show");document.getElementById("next").style.display="inline-block";showWish();celebration();window.scrollTo({top:0,behavior:"smooth"})}
+function speakWish(){if(!("speechSynthesis" in window)){alert("Voice not supported");return}speechSynthesis.cancel();const msg=new SpeechSynthesisUtterance("Happy Birthday, My Dear Bhabi. May your life be filled with happiness, peace, love and beautiful memories. Wishing you a wonderful birthday.");msg.lang="en-US";msg.rate=.85;msg.pitch=1.08;speechSynthesis.speak(msg)}
+let lampOn=false;
+function openLamp(){document.getElementById("lampScreen").classList.add("active");document.body.style.overflow="hidden"}
+function closeLamp(){document.getElementById("lampScreen").classList.remove("active");document.body.style.overflow="auto"}
+function toggleLamp(){lampOn=!lampOn;document.getElementById("lampScreen").classList.toggle("on",lampOn);document.getElementById("lampStatus").textContent=lampOn?"✦ LIGHT IS ON ✦":"LIGHT IS OFF";document.getElementById("lampMessage").textContent=lampOn?"A beautiful golden glow for a beautiful day. ❤️ তোমার জীবন হোক আলোকিত।":"Tap the lamp to create a beautiful golden glow. ❤️";if(lampOn)celebration()}
+function celebration(){const area=document.getElementById("hearts");for(let i=0;i<14;i++){setTimeout(()=>{const h=document.createElement("span");h.className="float";h.textContent=["❤️","💕","✨","🌹","♡","🌸"][Math.floor(Math.random()*6)];h.style.left=Math.random()*100+"%";h.style.fontSize=(Math.random()*17+13)+"px";h.style.animationDuration=(Math.random()*4+6)+"s";area.appendChild(h);setTimeout(()=>h.remove(),11000)},i*130)}}
+// Rose petals falling
+setInterval(()=>{
+  const p=document.createElement("div");p.className="petal";
+  p.textContent=["🌸","🌹","💖","✨"][Math.floor(Math.random()*4)];
+  p.style.left=Math.random()*100+"vw";p.style.fontSize=(14+Math.random()*16)+"px";
+  p.style.animationDuration=(5+Math.random()*5)+"s";
+  document.getElementById("petals").appendChild(p);setTimeout(()=>p.remove(),10000);
+},900);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLamp()});
+</script>
+</body>
+</html>
