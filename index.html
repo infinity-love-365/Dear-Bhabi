@@ -70,7 +70,6 @@ button{font-family:inherit;cursor:pointer}
 .big-cake{font-size:32px;margin:6px 0}
 .back-btn{width:100%;padding:13px;border:0;border-radius:40px;background:#fff;color:#c2185b;font-weight:800;font-size:12px;margin-top:10px;box-shadow:0 5px 15px rgba(0,0,0,.08)}
 .back-btn-top{padding:9px 18px;border:1px solid #ff8fb0;border-radius:40px;background:rgba(255,255,255,.7);color:#c2185b;font-weight:800;font-size:11px;margin-bottom:10px}
-.song-btn{padding:9px 16px;border:1px solid #ff8fb0;border-radius:40px;background:#fff;color:#c2185b;font-weight:800;font-size:11px;margin-top:8px}
 .lamp-screen{display:none;position:fixed;inset:0;z-index:50;overflow-y:auto;text-align:center;padding:28px 15px;background:linear-gradient(180deg,#ffe8f0,#ffc0d9)}
 .lamp-screen.active{display:block}
 .lamp-screen.on{background:radial-gradient(ellipse at 50% 30%,#ff9e5e,#e86a9a 60%,#7a123e)}
@@ -94,7 +93,8 @@ button{font-family:inherit;cursor:pointer}
 </head>
 <body>
 
-<audio id="bgSong" src="song.mp3" loop preload="auto"></audio>
+<!-- SONG - 1 BAR BAJBE, LOOP NAI -->
+<audio id="bgSong" src="song.mp3" preload="auto"></audio>
 
 <div class="romantic-bg">
   <div class="bokeh b1"></div><div class="bokeh b2"></div><div class="bokeh b3"></div><div class="bokeh b4"></div>
@@ -118,8 +118,7 @@ button{font-family:inherit;cursor:pointer}
   </div>
   <div class="date">17 NOVEMBER<div class="date-line"></div></div>
   <button class="voice" onclick="speakWish()">🎙️ HEAR MY BIRTHDAY WISH</button>
-  <br>
-  <button class="song-btn" id="songBtn" onclick="toggleSong()">🔇 গান চালু / বন্ধ</button>
+  <!-- গান চালু / বন্ধ বাটন রিমুভ করা হইছে -->
  </div>
 
  <section id="wishes">
@@ -191,19 +190,21 @@ const wishes=[
  {e:"🎂",t:"Stay Blessed!",m:"তোমার আগামী দিনগুলো আরও সুন্দর হোক। অনেক অনেক শুভ জন্মদিন! ❤️"}
 ];
 let index=0, giftOpened=false, autoTimer=null;
-let songPlaying=false;
-function playSong(){
+let songPlayedOnce=false;
+
+// ===== SONG - 1 BAR ONLY SYSTEM =====
+function playSongOnce(){
   const song=document.getElementById("bgSong");
-  if(!song) return;
+  if(!song || songPlayedOnce) return; // 1 বার বাজলে আর বাজবে না
+  songPlayedOnce=true;
   song.volume=0.6;
-  song.play().then(()=>{ songPlaying=true; document.getElementById("songBtn").textContent="🔊 গান বন্ধ করো"; }).catch(()=>{});
+  song.currentTime=0;
+  song.play().catch(()=>{});
+  // গান শেষ হইলে আর রিপিট হবে না, loop নাই
 }
-function toggleSong(){
-  const song=document.getElementById("bgSong");
-  if(song.paused){ playSong(); } else { song.pause(); songPlaying=false; document.getElementById("songBtn").textContent="🔇 গান চালু করো"; }
-}
+
 function openSurprise(){
-  playSong();
+  playSongOnce(); // Surprise এ 1 বারই বাজবে
   document.getElementById("hero").style.display="none";
   document.getElementById("wishes").classList.add("show");
   index=0; giftOpened=false;
@@ -213,7 +214,7 @@ function openSurprise(){
 }
 function goHome(){
   clearInterval(autoTimer);
-  const song=document.getElementById("bgSong"); if(song){ song.pause(); songPlaying=false; document.getElementById("songBtn").textContent="🔇 গান চালু করো"; }
+  const song=document.getElementById("bgSong"); if(song){ song.pause(); }
   document.getElementById("wishes").classList.remove("show");
   document.getElementById("finalGift").classList.remove("show");
   document.getElementById("hero").style.display="block";
@@ -257,6 +258,7 @@ function celebrateAgain(){
   document.getElementById("giftMessage").textContent="গিফটে চাপ দাও ❤️";
   document.querySelector(".gift-arrow-wrap").style.display="block";
   showWish(); startAutoSystem(); balloonBurst(); confettiBurst();
+  // আবার দেখো তে গান আর বাজবে না, কারণ 1 বার বেজে গেছে
 }
 function speakWish(){
   if(!("speechSynthesis" in window)){alert("Voice not supported");return}
