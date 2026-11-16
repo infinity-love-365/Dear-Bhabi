@@ -10,7 +10,7 @@
 body{font-family:Poppins,sans-serif;color:#fff;min-height:100vh;overflow-x:hidden;background:#2b0a1a}
 button{font-family:inherit;cursor:pointer}
 
-/* ===== NEW ROMANTIC PREMIUM BACKGROUND ===== */
+/* ===== ROMANTIC PREMIUM BACKGROUND ===== */
 .romantic-bg{position:fixed;inset:0;z-index:-5;overflow:hidden;background:#2b0a1a}
 .romantic-bg img{width:100%;height:100%;object-fit:cover;opacity:.85;filter:saturate(1.3) brightness(.95)}
 .romantic-bg::after{
@@ -32,21 +32,26 @@ button{font-family:inherit;cursor:pointer}
 
 /* MAIN */
 .container{width:min(620px,92%);margin:auto;padding:22px 0 45px;text-align:center;position:relative;z-index:2}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.logo{font-size:11px;font-weight:800;letter-spacing:3px;color:#ffe2b0;text-shadow:0 2px 10px #000}
-.icon-btn{width:43px;height:43px;border:1px solid #ffffff50;border-radius:50%;color:#fff;background:rgba(255,255,255,.15);backdrop-filter:blur(10px);font-size:18px}
 
 .lamp-button{
   width:100%;padding:19px 10px;border:1px solid #ffe2b0;border-radius:20px;
   background:linear-gradient(110deg, rgba(255,255,255,.25), rgba(255,180,200,.25));
   backdrop-filter:blur(15px);color:#fff;font-size:12px;font-weight:800;letter-spacing:2px;
-  box-shadow:0 10px 30px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.4);margin-bottom:28px;
+  box-shadow:0 10px 30px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.4);margin-bottom:18px;
 }
 .lamp-button span{font-size:22px;margin:0 8px}
 
-.label{display:inline-block;padding:10px 22px;border:1px solid #ffffff60;border-radius:50px;color:#fff;font-size:10px;letter-spacing:4px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px)}
+/* SURPRISE BUTTON - NOW ON TOP */
+.main-button-top{
+  width:100%;padding:21px 12px;border:1px solid #ffffff60;border-radius:60px;color:#fff;font-weight:800;font-size:14px;
+  background:linear-gradient(100deg,#ff4d7a,#ff8a5c,#b85cff);box-shadow:0 0 35px #ff5e8a88;animation:glow 2s infinite alternate;
+  margin-bottom:26px;
+}
+@keyframes glow{to{box-shadow:0 0 55px #ff8ab0}}
+.main-button-top span{font-size:23px;margin-left:12px}
+
 .title{
-  font-family:"Playfair Display",serif;font-size:clamp(52px,11vw,76px);line-height:1.08;margin:22px 0 12px;font-weight:800;
+  font-family:"Playfair Display",serif;font-size:clamp(52px,11vw,76px);line-height:1.08;margin:0 0 12px;font-weight:800;
   color:#fff;text-shadow:0 5px 20px rgba(255,80,130,.8), 0 2px 0 rgba(0,0,0,.2);
   animation:levitate 4s ease-in-out infinite;
 }
@@ -56,7 +61,7 @@ button{font-family:inherit;cursor:pointer}
 @keyframes beat{50%{transform:scale(1.25)}}
 .subtitle{color:#fff;font-size:13px;line-height:2;text-shadow:0 2px 8px #000}
 
-/* PHOTO - GLASS PREMIUM */
+/* PHOTO */
 .photo-frame{
   width:min(285px,80%);margin:26px auto 20px;padding:10px;border-radius:26px;
   background:linear-gradient(135deg,#fff,#ffd166,#ff8fb0,#fff);
@@ -79,12 +84,6 @@ button{font-family:inherit;cursor:pointer}
 .flame{position:absolute;top:-17px;width:9px;height:17px;background:radial-gradient(ellipse at center,#fff8ae,#ffb42d 60%,transparent);filter:drop-shadow(0 0 12px #ffba45);animation:flicker .6s infinite alternate}
 @keyframes flicker{to{transform:scale(.8) rotate(6deg)}}
 
-.main-button{
-  width:100%;padding:21px 12px;border:1px solid #ffffff60;border-radius:60px;color:#fff;font-weight:800;font-size:14px;
-  background:linear-gradient(100deg,#ff4d7a,#ff8a5c,#b85cff);box-shadow:0 0 35px #ff5e8a88;animation:glow 2s infinite alternate;
-}
-@keyframes glow{to{box-shadow:0 0 55px #ff8ab0}}
-.main-button span{font-size:23px;margin-left:12px}
 .voice{margin-top:14px;padding:12px 20px;border:1px solid #ffe2b0;border-radius:40px;color:#ffe2ac;background:rgba(0,0,0,.35);backdrop-filter:blur(10px);font-size:10px;font-weight:800;letter-spacing:1px}
 
 /* WISH */
@@ -105,7 +104,7 @@ button{font-family:inherit;cursor:pointer}
 #gift{font-size:65px;cursor:pointer;animation:beat 1.5s infinite}
 #giftMessage{font-size:13px;line-height:2;margin:15px 0;color:#fff}
 
-/* LAMP SCREEN - ROMANTIC */
+/* LAMP SCREEN */
 .lamp-screen{display:none;position:fixed;inset:0;z-index:50;overflow-y:auto;text-align:center;padding:35px 15px;background:linear-gradient(180deg,rgba(43,10,26,.9),rgba(20,5,15,.98))}
 .lamp-screen.active{display:block;animation:appear .5s}
 .lamp-screen.on{background:radial-gradient(ellipse at 50% 30%,#ff9e5e,#7a2a45 55%,#140a16)}
@@ -135,12 +134,13 @@ footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:
 <div id="hearts"></div>
 
 <div class="container">
- <div class="top"><div class="logo">✦ ROMANTIC BIRTHDAY ✦</div><button class="icon-btn" onclick="alert('Made with Love ❤️')">🌹</button></div>
 
  <button class="lamp-button" onclick="openLamp()">🪔 ROMANTIC TABLE LIGHT <span>➜</span></button>
 
+ <!-- SURPRISE BUTTON NOW ON TOP -->
+ <button class="main-button-top" onclick="openSurprise()">OPEN YOUR SURPRISE <span>➜</span></button>
+
  <div id="hero">
-  <div class="label">✧ A BEAUTIFUL DAY ✧</div>
   <h1 class="title"><span>My Dear</span><span>Bhabi <b>♥</b></span></h1>
   <p class="subtitle">Some people make life more beautiful.<br>Today is a special day for one of them. ❤️</p>
 
@@ -156,7 +156,6 @@ footer{margin-top:32px;font-size:10px;color:#fff;letter-spacing:2px;text-shadow:
   <div class="cake-area"><div class="cake"><div class="candle"><div class="flame"></div></div><div class="cake-body"></div><div class="cake-top"></div></div></div>
 
   <p style="font-size:10px;letter-spacing:3px;color:#ffe2b0;margin-bottom:16px">✦ A LITTLE SURPRISE FOR YOU ✦</p>
-  <button class="main-button" onclick="openSurprise()">OPEN YOUR SURPRISE <span>➜</span></button>
   <button class="voice" onclick="speakWish()">🎙️ HEAR MY BIRTHDAY WISH</button>
  </div>
 
@@ -231,7 +230,6 @@ function openLamp(){document.getElementById("lampScreen").classList.add("active"
 function closeLamp(){document.getElementById("lampScreen").classList.remove("active");document.body.style.overflow="auto"}
 function toggleLamp(){lampOn=!lampOn;document.getElementById("lampScreen").classList.toggle("on",lampOn);document.getElementById("lampStatus").textContent=lampOn?"✦ LIGHT IS ON ✦":"LIGHT IS OFF";document.getElementById("lampMessage").textContent=lampOn?"A beautiful golden glow for a beautiful day. ❤️ তোমার জীবন হোক আলোকিত।":"Tap the lamp to create a beautiful golden glow. ❤️";if(lampOn)celebration()}
 function celebration(){const area=document.getElementById("hearts");for(let i=0;i<14;i++){setTimeout(()=>{const h=document.createElement("span");h.className="float";h.textContent=["❤️","💕","✨","🌹","♡","🌸"][Math.floor(Math.random()*6)];h.style.left=Math.random()*100+"%";h.style.fontSize=(Math.random()*17+13)+"px";h.style.animationDuration=(Math.random()*4+6)+"s";area.appendChild(h);setTimeout(()=>h.remove(),11000)},i*130)}}
-// Rose petals falling
 setInterval(()=>{
   const p=document.createElement("div");p.className="petal";
   p.textContent=["🌸","🌹","💖","✨"][Math.floor(Math.random()*4)];
