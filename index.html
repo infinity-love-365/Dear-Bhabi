@@ -9,6 +9,13 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:Poppins,sans-serif;color:#4a1228;min-height:100vh;overflow-x:hidden;background:#ffe8f0}
 button{font-family:inherit;cursor:pointer}
+/* ===== EXPIRED SCREEN ===== */
+#expiredScreen{display:none;position:fixed;inset:0;z-index:200;background:linear-gradient(180deg,#1a0a1a,#7a123e);color:#fff;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+#expiredScreen.show{display:flex}
+#expiredScreen h1{font-family:"Playfair Display",serif;font-size:32px;line-height:1.2}
+#expiredScreen p{margin:12px 0;font-size:13px;line-height:1.7;opacity:.9}
+#expiredScreen input{padding:12px 14px;border:0;border-radius:30px;width:min(280px,85vw);text-align:center;font-size:13px;margin-top:10px;outline:none}
+#expiredScreen .admin-btn{margin-top:10px;padding:11px 24px;border:0;border-radius:30px;background:#ff4d7a;color:#fff;font-weight:800;font-size:12px}
 /* ===== INTRO - DHONUK TIR - 2.5 SEC ===== */
 #intro{position:fixed;inset:0;z-index:100;background:linear-gradient(180deg,#1a0a1a,#7a123e 55%,#ff4d7a);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;color:#fff;overflow:hidden;cursor:pointer;transition:opacity .4s, visibility .4s}
 #intro.hide{opacity:0;visibility:hidden}
@@ -108,6 +115,17 @@ button{font-family:inherit;cursor:pointer}
 </head>
 <body>
 
+<!-- EXPIRED SCREEN - BIRTHDAY SES -->
+<div id="expiredScreen">
+  <div style="font-size:50px">🎂 ❤️</div>
+  <h1>Birthday Already Over</h1>
+  <p>This surprise was only for 17 November.<br>Thank you for all the love. ❤️</p>
+  <p style="font-size:11px;opacity:.7">Admin Access Only</p>
+  <input type="password" id="adminPass" placeholder="Enter Admin Code">
+  <button class="admin-btn" onclick="checkAdmin()">UNLOCK 🔓</button>
+  <p id="adminError" style="color:#ffd166;display:none">Wrong code!</p>
+</div>
+
 <!-- INTRO 2.5 SEC -->
 <div id="intro" onclick="closeIntro()">
   <div class="intro-hearts" id="introHearts"></div>
@@ -131,7 +149,7 @@ button{font-family:inherit;cursor:pointer}
 </div>
 <div id="balloons"></div><div id="hearts"></div>
 
-<div class="container">
+<div class="container" id="mainContainer">
  <button class="lamp-button" onclick="openLamp()">🪔 ROMANTIC TABLE LIGHT <span>➜</span></button>
  <button class="main-button-top" onclick="openSurprise()">OPEN YOUR SURPRISE <span>➜</span></button>
  <div id="hero">
@@ -209,6 +227,35 @@ button{font-family:inherit;cursor:pointer}
 </div>
 
 <script>
+// ===== ADMIN + EXPIRED SYSTEM =====
+const ADMIN_CODE = "shakil123";
+const BIRTHDAY_END = new Date("2026-11-18T00:00:00"); // 17 Nov ses
+const urlParams = new URLSearchParams(window.location.search);
+const isAdminLink = urlParams.get("admin") === ADMIN_CODE;
+const isAdminSaved = localStorage.getItem("bhabi_admin") === "yes";
+let isAdmin = isAdminLink || isAdminSaved;
+if(isAdminLink){ localStorage.setItem("bhabi_admin","yes"); }
+const now = new Date();
+const isExpired = now > BIRTHDAY_END;
+
+if(isExpired && !isAdmin){
+  document.getElementById("expiredScreen").classList.add("show");
+  document.getElementById("intro").style.display="none";
+  document.getElementById("mainContainer").style.display="none";
+}
+function checkAdmin(){
+  const val = document.getElementById("adminPass").value;
+  if(val === ADMIN_CODE){
+    localStorage.setItem("bhabi_admin","yes");
+    document.getElementById("expiredScreen").classList.remove("show");
+    document.getElementById("mainContainer").style.display="flex";
+    document.getElementById("intro").style.display="flex";
+    closeIntro();
+  } else {
+    document.getElementById("adminError").style.display="block";
+  }
+}
+
 let introClosed=false;
 function closeIntro(){
   if(introClosed) return; introClosed=true;
@@ -217,7 +264,7 @@ function closeIntro(){
   setTimeout(()=>{ intro.style.display="none"; },400);
   confettiBurst(); balloonBurst();
 }
-setTimeout(closeIntro, 2500); // 2.5 SEC - FINAL
+if(!isExpired || isAdmin){ setTimeout(closeIntro, 2500); }
 setInterval(()=>{
   if(introClosed) return;
   const area=document.getElementById("introHearts");
